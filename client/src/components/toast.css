@@ -1,0 +1,51 @@
+.pact-toasts {
+  position: fixed;
+  z-index: 200;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  display: grid;
+  width: min(390px, calc(100vw - 32px));
+  gap: 10px;
+  pointer-events: none;
+}
+.pact-toast {
+  display: grid;
+  grid-template-columns: 22px 1fr 28px;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 12px 40px #201a161c;
+  font-size: 14px;
+  line-height: 1.45;
+  pointer-events: auto;
+  animation: pact-toast-in 220ms ease-out both;
+}
+.pact-toast-success .pact-toast-icon { color: #28714c; }
+.pact-toast-error .pact-toast-icon { color: #a33f32; }
+.pact-toast-loading .pact-toast-icon, .pact-toast-info .pact-toast-icon { color: var(--accent-ink); }
+.pact-toast button { display: grid; place-items: center; width: 28px; height: 28px; border: 0; border-radius: 7px; background: transparent; color: inherit; cursor: pointer; }
+.pact-toast button:hover { background: var(--sage); }
+.pact-loader {
+  min-height: 65vh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 13px;
+  color: var(--ink);
+  text-align: center;
+  font-size: 14px;
+}
+.pact-loader > strong { font: 800 24px/1 "Manrope", sans-serif; letter-spacing: -1px; }
+.pact-loader > strong span { color: var(--accent); }
+.pact-loader-mark { position: relative; width: 34px; height: 38px; color: var(--accent); animation: pact-mark-bob 1.25s ease-in-out infinite; }
+.pact-loader-mark i { position: absolute; left: 2px; top: 1px; width: 16px; height: 27px; border-radius: 10px 10px 4px 10px; background: currentColor; transform: rotate(29deg); }
+.pact-loader-mark i + i { left: 17px; top: 9px; height: 22px; animation: pact-mark-glow 1.25s ease-in-out infinite alternate; }
+@keyframes pact-toast-in { from { opacity: 0; transform: translateY(-8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes pact-mark-bob { 50% { transform: translateY(-5px) rotate(4deg); } }
+@keyframes pact-mark-glow { to { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .pact-toast { animation: none; } .pact-loader-mark, .pact-loader-mark i + i { animation: none; } }

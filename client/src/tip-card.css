@@ -1,0 +1,38 @@
+.tip-amounts { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.tip-amount {
+  flex: 1 1 90px; display: grid; gap: 2px; padding: 10px 12px;
+  font: inherit; font-weight: 600; color: inherit; cursor: pointer;
+  background: transparent; border: 1px solid currentColor;
+  border-radius: var(--profile-radius);
+  transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+}
+.tip-amount small { font-weight: 400; opacity: 0.7; }
+.tip-amount[aria-pressed="true"] {
+  background: var(--profile-card); color: var(--profile-card-text);
+  border: 2px solid var(--profile-card);
+  box-shadow: 0 0 0 2px var(--profile-accent);
+}
+.tip-amount[aria-pressed="true"]::after {
+  position: absolute;
+  color: var(--profile-accent); font-size: 1rem; line-height: 1;
+}
+.tip-input {
+  width: 100%; box-sizing: border-box; margin-top: 8px; padding: 10px 12px;
+  font: inherit; color: inherit; resize: none;
+  background: rgb(255 255 255 / 0.12); border: 1px solid currentColor;
+  border-radius: var(--profile-radius);
+}
+.tip-input::placeholder { color: inherit; opacity: 0.6; }
+.tip-input:focus, .tip-input:focus-visible {
+  outline: none; box-shadow: none;
+  background: rgb(255 255 255 / 0.12); border-color: #171717;
+}
+.tip-send {
+  width: 100%; margin-top: 12px; padding: 12px; font: inherit; font-weight: 700;
+  cursor: pointer; border: 2px solid var(--profile-accent-text); border-radius: var(--profile-radius);
+  background: var(--profile-card); color: var(--profile-card-text);
+}
+.tip-send:disabled, .tip-amount:disabled { opacity: 0.6; cursor: not-allowed; }
+.tip-secondary { margin-top: 10px; font: inherit; color: inherit; background: none; border: 1px solid currentColor; padding: 8px 14px; border-radius: var(--profile-radius); cursor: pointer; }
+.tip-error { margin-top: 10px; font-size: 0.9rem; }
+.tip-done a { display: block; margin-top: 8px; color: inherit; }

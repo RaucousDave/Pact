@@ -1,0 +1,29 @@
+.public-profile-page .profile-canvas {
+  min-height: 100svh;
+  border-radius: 0;
+}
+
+.public-profile-page .profile-canvas-content {
+  width: min(100%, 640px);
+  margin-inline: auto;
+}
+
+.public-profile-page .profile-identity h1 {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  overflow-wrap: anywhere;
+}
+
+.account-share {
+  display: grid;
+  gap: 12px;
+  margin-block: 24px;
+  text-align: left;
+}
+
+.account-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}

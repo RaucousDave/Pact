@@ -1,0 +1,116 @@
+/* A single bright accent ties actions, progress, and moments of delight together. */
+#main {
+  overflow-x: clip;
+}
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--accent);
+  transform-origin: left;
+  z-index: 20;
+  pointer-events: none;
+}
+.headline-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.headline-mask > span {
+  display: block;
+}
+.spark-one,
+.spark-two,
+.creator-stage-compact .spark-one,
+.closing-star,
+.form-flower {
+  color: var(--accent);
+}
+.section-kicker > span {
+  background: var(--accent);
+}
+.step-number {
+  color: var(--accent-ink);
+  border-color: #e9a589;
+  background: #ffede1;
+}
+.big-flower {
+  color: var(--accent);
+}
+.auth-switch > a > span {
+  height: 3px;
+  background: var(--accent);
+}
+.route-loading {
+  min-height: 70svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.button > svg {
+  transition: transform 180ms var(--ease-out);
+}
+/* Supporting copy remains readable against the warm, pale surfaces. */
+.hero-description,
+.hero-footnote,
+.section-heading > p,
+.feature-card > p,
+.feature-status,
+.preview-note,
+.how-intro > p,
+.steps p,
+.muted-status,
+.section-kicker,
+.faq-section > div > p,
+.faq-list details > p,
+.testnet-badge,
+.footer-bottom,
+.site-footer > div:first-child > p,
+.footer-right,
+.field-help,
+.auth-demo-note,
+.auth-bottom-link,
+.auth-footer,
+.back-link,
+.form-intro > p,
+.auth-assurance,
+.auth-switch > a,
+.preview-caption {
+  color: var(--muted);
+}
+.form-field input::placeholder {
+  color: #737e68;
+}
+.field-help,
+.field-error {
+  font-size: 11px;
+}
+.faq-list details {
+  interpolate-size: allow-keywords;
+}
+.faq-list details::details-content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    height 200ms var(--ease-out),
+    opacity 200ms var(--ease-out),
+    content-visibility 200ms allow-discrete;
+}
+.faq-list details[open]::details-content {
+  height: auto;
+  opacity: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .button:hover > svg {
+    transform: translate(2px, -2px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button:hover > svg {
+    transform: none;
+  }
+}

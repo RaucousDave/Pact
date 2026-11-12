@@ -1,0 +1,44 @@
+.profile-tip-card.donation-card { text-align: left; background: var(--profile-card); color: var(--profile-card-text); border: 1px solid var(--profile-border); }
+.donation-card > h3, .donation-card > p, .donation-card > .donation-note { text-align: center; }
+.donation-note { display: block; margin: 12px 0 24px; font-size: 12px; opacity: .8; }
+.donation-form, .donation-form fieldset, .donation-field, .donation-review, .donation-receipt { display: grid; gap: 16px; min-width: 0; }
+.donation-form fieldset { border: 0; padding: 0; margin: 0; }
+.donation-form legend { padding: 0 0 12px; font-weight: 600; }
+.donation-field { gap: 8px; }
+.donation-field label { font-size: 14px; font-weight: 600; }
+.donation-field label span, .donation-card small { font-weight: 400; font-size: 12px; }
+.donation-presets, .donation-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.donation-presets { justify-content: center; }
+.donation-card .button { min-height: 44px; padding: 12px 16px; font-size: 14px; white-space: normal; }
+.donation-card .button-primary, .donation-card [aria-pressed="true"] { background: var(--profile-accent); color: var(--profile-accent-text); border-color: var(--profile-accent); }
+.donation-card .button-outline { color: var(--profile-card-text); border-color: var(--profile-border); }
+.donation-card .button-outline[aria-pressed="true"] { color: var(--profile-accent-text); }
+.donation-card .pact-input { background: var(--profile-card); color: var(--profile-card-text); border-color: var(--profile-border); }
+.donation-card .pact-input::placeholder { color: inherit; opacity: .6; }
+.donation-card :is(input, textarea, button, a):focus-visible { outline: 2px solid var(--profile-accent); outline-offset: 4px; }
+.donation-card button:disabled { opacity: .55; cursor: not-allowed; }
+.donation-card h4 { font-size: 20px; margin: 0; }
+.donation-card a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.donation-review dl { margin: 0; display: grid; gap: 12px; }
+.donation-review dl > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.donation-review dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.donation-address, .donation-receipt, .donation-error { overflow-wrap: anywhere; }
+.donation-error { padding: 12px; border: 1px solid currentColor; border-radius: 8px; }
+.donation-wallet-dialog { position: fixed; width: min(460px, calc(100vw - 32px)); max-height: min(82vh, 720px); margin: auto; padding: 28px; overflow-y: auto; border: 1px solid var(--profile-border); border-radius: 18px; background: var(--profile-card); color: var(--profile-card-text); box-shadow: 0 24px 80px rgb(0 0 0 / 28%); }
+.donation-wallet-dialog::backdrop { background: rgb(12 18 28 / 62%); backdrop-filter: blur(3px); }
+.donation-wallet-dialog h3 { margin: 8px 32px 8px 0; font-size: 22px; line-height: 1.2; }
+.donation-wallet-dialog p { margin: 0 0 20px; line-height: 1.55; }
+.donation-wallet-kicker { color: var(--profile-accent); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.donation-wallet-close { position: absolute; top: 14px; right: 14px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--profile-border); border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.donation-wallet-actions { display: grid; gap: 10px; margin-top: 20px; }
+.donation-wallet-actions .button { width: 100%; }
+.donation-wallet-steps { display: grid; gap: 12px; margin: 18px 0 22px; padding-left: 22px; line-height: 1.55; }
+.donation-wallet-dialog :is(button, a):focus-visible { outline: 2px solid var(--profile-accent); outline-offset: 3px; }
+.donation-wallet-dialog .button-outline { color: var(--profile-card-text); border-color: var(--profile-border); }
+.received-donations { margin-block: 32px; text-align: left; }
+.donation-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.donation-heading h2 { margin: 8px 0 16px; font-size: 24px; }
+.received-donations ul { padding: 0; list-style: none; }
+.received-donations li { padding-block: 20px; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.received-donations li > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-variant-numeric: tabular-nums; }
+.received-donations li > a { display: block; margin-top: 8px; font-size: 13px; }
