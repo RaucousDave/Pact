@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
-// import { DonationCard } from "./DonationCard";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Heart, Globe } from "lucide-react";
 import { SiInstagram as Instagram, SiYoutube as Youtube } from "react-icons/si";
 import { TipCard } from "./TipCard";
+import { DonationCard } from "./DonationCard";
 import { safeLink, type PageContent, type ProfileBlock } from "../lib/page-model";
 import {
   contrastRatio,
@@ -125,7 +125,7 @@ export function ProfileCanvas({
             </span>
           </div>}
         </div>
-        {content && <div className="profile-blocks">{content.blocks.filter((block) => block.visible !== false).map((block) => <SavedBlock key={block.id} block={block} animate={animate} handle={identity.handle} />)}</div>}
+        {content && <div className="profile-blocks">{content.blocks.filter((block) => block.visible !== false).map((block) => <SavedBlock key={block.id} block={block} animate={animate} handle={identity.handle} preview={preview} />)}</div>}
         {preview && !content && <div className="profile-blocks">
           {["Explore my work", "A little behind the scenes"].map((title) => (
             <motion.div
@@ -175,7 +175,7 @@ export function ProfileCanvas({
   );
 }
 
-function SavedBlock({ block, animate, handle }: { block: ProfileBlock; animate: boolean; handle: string }) {
+function SavedBlock({ block, animate, handle, preview }: { block: ProfileBlock; animate: boolean; handle: string; preview: boolean }) {
   const animation = block.appearance?.animation;
   const moves = animate && animation !== "none";
   const style = {
@@ -196,7 +196,9 @@ function SavedBlock({ block, animate, handle }: { block: ProfileBlock; animate: 
         ? <a href={safeLink(block.linkUrl)} target="_blank" rel="noopener noreferrer"><img src={image} alt={block.alt} /></a>
         : <img src={image} alt={block.alt} />}{block.caption && <figcaption>{block.caption}</figcaption>}</figure>;
     }
-    case "tip": return <div className="profile-tip-card" data-featured={style["data-featured"]}><TipCard handle={handle} title={block.title} description={block.description} presetAmounts={block.presetAmounts} /></div>;
+    case "tip": return preview
+      ? <div className="profile-tip-card" data-featured={style["data-featured"]}><TipCard handle={handle} title={block.title} description={block.description} presetAmounts={block.presetAmounts} /></div>
+      : <DonationCard handle={handle} block={block} />;
     case "commission": return <div className="profile-link-card"><div><strong>Commissions</strong><span>Booking is not available yet.</span></div></div>;
   }
 }
