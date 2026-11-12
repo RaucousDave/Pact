@@ -14,6 +14,7 @@ from app.core.config import settings
 from app.core.database import db
 from app.core.security import (
     create_access_token,
+    encrypt_wallet_secret,
     get_password_hash,
     verify_password,
 )
@@ -172,7 +173,7 @@ async def register(req: RegisterReq):
             req.handle,
             req.display_name,
             public_key,
-            secret_key,
+            encrypt_wallet_secret(secret_key),
         )
     except asyncpg.UniqueViolationError as error:
         raise HTTPException(

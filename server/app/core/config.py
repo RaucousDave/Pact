@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     DEBUG: bool = True
     SECRET_KEY: str = Field(min_length=32)
+    WALLET_ENCRYPTION_KEY: str = Field(min_length=44)
     USDC_ISSUER: str = ""
     ADMIN_PUBLIC: str = ""
     ADMIN_SECRET: str = ""
